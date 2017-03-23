@@ -31,6 +31,10 @@
         SongPlayer.currentTime = null;
         
         /**
+        */
+        SongPlayer.volume = 70;
+        
+        /**
         * @desc Buzz object audio file (private attribute)
         * @type {Object}
         */
@@ -49,7 +53,7 @@
             
             currentBuzzObject = new buzz.sound(song.audioUrl, {
                 formats: ['mp3'],
-                volume: 10,
+                //volume: 10,
                 preload: true
             });
             
@@ -162,6 +166,14 @@
         SongPlayer.setCurrentTime = function(time) {
             if (currentBuzzObject) {
                 currentBuzzObject.setTime(time);
+            }
+        };
+        
+        /**
+        */
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
             }
         };
 
